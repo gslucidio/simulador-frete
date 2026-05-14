@@ -99,8 +99,6 @@ def gerar_excel(template_bytes, p):
     ws_d["J16"].value = p["piso_a"]
 
     # Dashboard dinâmico
-    ws_d["C4"].value  = f"=((Fundo!U{LR}/Dashboard!D14)^(365/{N}))-1"
-    ws_d["D4"].value  = "=((1+C4)^12)-1"
     ws_d["E5"].value  = f"=Fundo!AD5+Fundo!AD{LR}"
     ws_d["E6"].value  = f"=Fundo!AJ5+Fundo!AJ{LR}"
     ws_d["E7"].value  = f"=Fundo!AN5+Fundo!AN{LR}"
@@ -110,7 +108,7 @@ def gerar_excel(template_bytes, p):
     ws_f["X2"].value  = f"=IRR(X5:X{LR},0.001)"
     ws_f["AD2"].value = f"=IRR(AD5:AD{LR},0.001)"
     ws_f["AJ2"].value = f"=IRR(AJ5:AJ{LR},0.001)"
-    ws_f["AN2"].value = f"=IRR(AN5:AN{LR})"
+    ws_f["AN2"].value = f"=IRR(AN5:AN{LR},0.001)"
 
     clear_rows(ws_f, 5)
     clear_rows(ws_c, 5)
