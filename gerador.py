@@ -105,6 +105,9 @@ def gerar_excel(template_bytes, p):
     ws_d["E7"].value  = f"=Fundo!AN5+Fundo!AN{LR}"
     ws_d["C23"].value = f"=Fundo!U{LR}/Dashboard!D14"
 
+    # Linha 4 — init (explícito para não depender do template)
+    ws_f["U4"].value = "=Z5+AF5+AL5"
+
     # IRRs
     ws_f["X2"].value  = f"=IRR(X5:X{LR},0.001)"
     ws_f["AD2"].value = f"=IRR(AD5:AD{LR},0.001)"
