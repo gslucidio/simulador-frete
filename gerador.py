@@ -62,6 +62,11 @@ def gerar_excel(template_bytes, n_dias, d1, d2, d3):
     ws_d["H10"].value = f"% {d2} dias"
     ws_d["H11"].value = f"% {d3} dias"
 
+    # Cabeçalhos das carteiras na aba Fundo
+    ws_f["E2"].value = f"Carteira {d1} dias"
+    ws_f["I2"].value = f"Carteira {d2} dias"
+    ws_f["M2"].value = f"Carteira {d3} dias"
+
     # Refs dinâmicas à última linha
     ws_d["E5"].value  = f"=Fundo!AD5+Fundo!AD{LR}"
     ws_d["E6"].value  = f"=Fundo!AJ5+Fundo!AJ{LR}"
