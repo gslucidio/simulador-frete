@@ -84,7 +84,7 @@ def gerar_excel(template_bytes, p):
     ws_f["X2"].value  = f"=IRR(X5:X{LR},0.001)"
     ws_f["AD2"].value = f"=IRR(AD5:AD{LR},0.001)"
     ws_f["AJ2"].value = f"=IRR(AJ5:AJ{LR},0.001)"
-    ws_f["AN2"].value = f"=IRR(AN5:AN{LR})"
+    ws_f["AN2"].value = f"=IRR(AN5:AN{LR},0.001)"
 
     clear_rows(ws_f, 5); clear_rows(ws_c, 5)
 
