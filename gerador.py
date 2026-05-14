@@ -148,13 +148,13 @@ def gerar_excel(template_bytes, p):
         sc(ws_f,r,26,"=Z4" if first else 0)
         sc(ws_f,r,27,f"=AC{pr}*(((1+Dashboard!$C$20)^(1/30))-1)")
         sc(ws_f,r,28,f"=AC{r}" if last else 0)
-        sc(ws_f,r,29,f"=Z{r}" if first else f"=AC{pr}+AA{r}-AB{pr}")
+        sc(ws_f,r,29,f"=Z{r}" if first else f"=AC{pr}+AA{r}-AB{pr}+Z{r}")
         sc(ws_f,r,30,f"=-Z{r}+AB{r}")
 
         sc(ws_f,r,32,"=AF4" if first else 0)
         sc(ws_f,r,33,f"=AI{pr}*(((1+Dashboard!$C$21)^(1/30))-1)")
         sc(ws_f,r,34,f"=AI{r}" if last else 0)
-        sc(ws_f,r,35,f"=AF{r}" if first else f"=AI{pr}+AG{r}-AH{pr}")
+        sc(ws_f,r,35,f"=AF{r}" if first else f"=AI{pr}+AG{r}-AH{pr}+AF{r}")
         sc(ws_f,r,36,f"=-AF{r}+AH{r}")
 
         sc(ws_f,r,38,"=AL4" if first else 0)
