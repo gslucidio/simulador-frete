@@ -73,8 +73,6 @@ def gerar_excel(template_bytes, p):
     ws_d["J16"].value = p["piso_a"]
 
     # Dashboard: cells dinâmicas
-    ws_d["C4"].value  = f"=((Fundo!U{LR}/Dashboard!D14)^(365/{N}))-1"
-    ws_d["D4"].value  = "=((1+C4)^12)-1"
     ws_d["E5"].value  = f"=Fundo!AD5+Fundo!AD{LR}"
     ws_d["E6"].value  = f"=Fundo!AJ5+Fundo!AJ{LR}"
     ws_d["E7"].value  = f"=Fundo!AN5+Fundo!AN{LR}"
