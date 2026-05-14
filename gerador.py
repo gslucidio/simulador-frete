@@ -8,6 +8,7 @@ import datetime
 import streamlit as st
 from openpyxl import load_workbook
 from openpyxl.cell import MergedCell
+from openpyxl.styles import PatternFill
 
 st.set_page_config(page_title="Gerador — Modelo de Frete", page_icon="🚛")
 
@@ -160,6 +161,14 @@ def gerar_excel(template_bytes, p):
         sc(ws_f,r,38,"=AL4" if first else 0)
         sc(ws_f,r,39,f"=U{r}-AB{r}-AH{r}" if last else 0)
         sc(ws_f,r,40,f"=-AL{r}+AM{r}")
+
+        # Amarelo nas colunas editáveis — todas as linhas intermediárias (não na última)
+        if not last:
+            yellow = PatternFill(patternType="solid", fgColor="FFFFFFCC")
+            for col in [26, 28, 32, 34, 38, 39]:  # Z, AB, AF, AH, AL, AM
+                cell = ws_f.cell(r, col)
+                if not isinstance(cell, MergedCell):
+                    cell.fill = yellow
 
         sc(ws_c,r,2,n)
         sc(ws_c,r,3,START if first else f"=C{pr}+1")
